@@ -1,143 +1,195 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahma Oktavia Albar | Pixel Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-bg: #d29f22;
+            --gold-dark: #b8860b;
+            --wine-red: #5d0018;
+            --maroon: #800000;
+            --black: #000000;
+            --white: #ffffff;
+        }
 
-<title>Rahma Oktavia Albar | My Digital Projects Portfolio</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            image-rendering: pixelated; 
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&family=Press+Start+2P&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: var(--gold-bg);
+            color: var(--white);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
 
-<style>
+        .pixel-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(45deg, var(--gold-dark) 25%, transparent 25%), 
+                linear-gradient(-45deg, var(--gold-dark) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, var(--gold-dark) 75%), 
+                linear-gradient(-45deg, transparent 75%, var(--gold-dark) 75%);
+            background-size: 40px 40px;
+            z-index: -2;
+            opacity: 0.3;
+        }
 
-:root {
-    --primary-red: #D32F2F;
-    --bg-dark: #0f172a;
-    --text-light: #f8fafc;
-    --accent-gray: #94a3b8;
-}
+        .pixel-grid {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+        }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-}
+        .hud-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: var(--black);
+            border-bottom: 4px solid var(--wine-red);
+            z-index: 10;
+        }
 
-.container {
-    text-align: center;
-    max-width: 800px;
-    padding: 20px;
-    animation: fadeIn 1.5s ease-out;
-}
+        .player-info {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--gold-bg);
+        }
 
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid var(--primary-red);
-    object-fit: cover;
-    margin-bottom: 20px;
-    box-shadow: 0 0 20px rgba(211, 47, 47, 0.3);
-}
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+        }
 
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -1px;
-    color: #ffffff;
-}
+        .container {
+            text-align: center;
+            max-width: 900px;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
 
-.tagline {
-    border-left: 4px solid var(--primary-red);
-    padding-left: 15px;
-    font-style: italic;
-    color: #cbd5e1;
-    margin: 20px auto;
-    max-width: 500px;
-}
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border: 5px solid var(--black);
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 8px 8px 0px var(--maroon);
+        }
 
-/* PIXEL MENU */
+        .header-label {
+            color: var(--maroon);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
 
-.pixel-menu {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            color: #ffffff;
+            text-shadow: 5px 5px 0px var(--maroon);
+        }
 
-.pixel-btn {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    text-decoration: none;
-    color: white;
-    padding: 14px 22px;
-    background: #111827;
-    border: 3px solid var(--primary-red);
-    box-shadow: 4px 4px 0px var(--primary-red);
-    transition: all 0.15s ease;
-}
+        .tagline {
+            background: rgba(0, 0, 0, 0.1);
+            border-left: 6px solid var(--maroon);
+            padding: 15px;
+            font-size: 0.55rem;
+            color: var(--wine-red);
+            margin: 20px auto;
+            max-width: 600px;
+            line-height: 2;
+            text-align: left;
+        }
 
-.pixel-btn:hover {
-    transform: translate(4px,4px);
-    box-shadow: none;
-    background: var(--primary-red);
-}
+        .btn-group {
+            margin-top: 40px;
+        }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .btn {
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 0.7rem;
+            transition: 0.2s;
+            display: inline-block;
+            border: 4px solid var(--black);
+        }
 
-</style>
+        .btn-primary {
+            background-color: var(--maroon);
+            color: white;
+            box-shadow: 6px 6px 0px var(--wine-red);
+        }
+
+        .btn-primary:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px var(--white);
+            background-color: var(--wine-red);
+        }
+
+        .footer-nav {
+            padding: 20px 40px;
+            background: var(--black);
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="pixel-bg"></div>
+    <div class="pixel-grid"></div>
 
-<img src="rahmaphoto.jpeg" alt="Rahma Oktavia Albar" class="profile-img">
+    <header class="hud-top">
+        <div class="player-info">RAHMA_OKTAVIA_ALBAR</div>
+        <div class="player-info" style="color: var(--white);">[HOME]</div>
+    </header>
 
-<p style="color: var(--primary-red); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">
-My Digital Projects Portfolio
-</p>
+    <main class="main-wrapper">
+        <div class="container">
+            <img src="rahmaphoto.jpeg" alt="Rahma" class="profile-img">
+            
+            <p class="header-label">Digital_Projects_Portfolio</p>
+            
+            <h1>RAHMA OKTAVIA<br>ALBAR</h1>
+            
+            <div class="tagline">
+                "MENGUBAH DATA MENJADI INSIGHT DAN IDE MENJADI SOLUSI DIGITAL."
+            </div>
 
-<h1>Rahma Oktavia Albar</h1>
+            <div class="btn-group">
+                <a href="portfolio.html" class="btn btn-primary">LIHAT PROYEK SAYA</a>
+            </div>
+        </div>
+    </main>
 
-<div class="tagline">
-"Mengubah data menjadi insight dan ide menjadi solusi digital."
-</div>
-
-<div class="pixel-menu">
-
-<a href="portfolio.html" class="pixel-btn">
-PROJECTS
-</a>
-
-<a href="sandbox.html" class="pixel-btn">
-SANDBOX
-</a>
-
-<a href="about.html" class="pixel-btn">
-ABOUT
-</a>
-
-</div>
-
-</div>
+    <footer class="footer-nav"></footer>
 
 </body>
 </html>
