@@ -7,19 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #19171b;
+            --bg-dark: #0a0a0c;
             --wine-red: #5d0018;
             --maroon: #800000;
             --gold-accent: #d29f22;
             --white: #ffffff;
-            --gray-text: #94a3b8;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -29,33 +24,60 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            position: relative;
         }
 
+        /* --- Game Animated Background --- */
+        .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                linear-gradient(rgba(93, 0, 24, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(93, 0, 24, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveGrid {
+            from { background-position: 0 0; }
+            to { background-position: 50px 50px; }
+        }
+
+        .bg-glow {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 80vw; height: 80vh;
+            background: radial-gradient(circle, rgba(128, 0, 0, 0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -2;
+        }
+
+        /* --- UI Elements --- */
         .hud-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-            border-bottom: 1px solid var(--wine-red);
-        }
-
-        .player-info {
-            display: flex;
-            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--wine-red);
+            z-index: 10;
         }
 
         .headline-container {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
+            z-index: 5;
         }
 
         h1.headline {
             font-family: 'Poppins', sans-serif;
-            font-size: 2.8rem;
+            font-size: 3rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 0px var(--wine-red), 4px 4px 0px rgba(210, 159, 34, 0.2);
+            letter-spacing: 4px;
+            color: var(--white);
+            text-shadow: 0 0 10px var(--wine-red), 3px 3px 0px var(--maroon), 6px 6px 0px rgba(210, 159, 34, 0.2);
         }
 
         .menu-container {
@@ -63,83 +85,66 @@
             display: flex;
             align-items: center;
             overflow-x: auto;
-            padding: 0 40px;
-            gap: 20px;
+            padding: 0 60px;
+            gap: 25px;
             scrollbar-width: none;
+            z-index: 5;
         }
 
         .menu-container::-webkit-scrollbar { display: none; }
 
         .menu-card {
-            min-width: 220px;
-            height: 320px;
-            background: rgba(128, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 240px;
+            height: 360px;
+            background: rgba(128, 0, 0, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 20px;
-            transition: 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            padding: 25px;
+            transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
             cursor: pointer;
             text-decoration: none;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(15px);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 85% 100%, 0 100%);
         }
 
         .menu-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.08) translateY(-10px);
             border-color: var(--gold-accent);
-            background: linear-gradient(to top, rgba(93, 0, 24, 0.5), transparent);
-            box-shadow: 0 0 20px rgba(210, 159, 34, 0.15);
+            background: linear-gradient(to top, rgba(128, 0, 0, 0.6), transparent);
+            box-shadow: 0 0 30px rgba(210, 159, 34, 0.3);
         }
 
         .menu-card::before {
             content: attr(data-number);
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 15px; left: 15px;
             font-family: 'Poppins';
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.04);
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.05);
             font-weight: 900;
         }
 
         .menu-card h2 {
             font-family: 'Poppins';
-            color: var(--white);
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             text-transform: uppercase;
-            margin-bottom: 3px;
-            z-index: 1;
+            margin-bottom: 5px;
         }
 
         .menu-card p {
             color: var(--gold-accent);
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            z-index: 1;
-        }
-
-        .corner {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 30px;
-            height: 30px;
-            background: var(--wine-red);
-            clip-path: polygon(100% 0, 0 100%, 100% 100%);
-        }
-
-        .menu-card:hover .corner {
-            background: var(--gold-accent);
         }
 
         .footer-nav {
-            padding: 25px 40px;
-            display: flex;
-            justify-content: flex-start;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 10;
         }
 
         .back-btn {
@@ -148,25 +153,32 @@
             font-weight: 700;
             font-size: 0.8rem;
             letter-spacing: 2px;
-            padding: 8px 25px;
-            border: 1px solid var(--white);
-            transition: 0.2s;
+            padding: 10px 30px;
+            border: 2px solid var(--white);
+            transition: 0.3s;
+            position: relative;
         }
 
         .back-btn:hover {
-            background: var(--white);
+            background: var(--gold-accent);
+            border-color: var(--gold-accent);
             color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--gold-accent);
         }
-
     </style>
 </head>
 <body>
 
+    <div class="bg-overlay"></div>
+    <div class="bg-glow"></div>
+
     <div class="hud-top">
-        <div class="player-info">
-            <span style="letter-spacing: 2px; font-weight: 600; font-size: 0.9rem; border-left: 3px solid var(--gold-accent); padding-left: 10px;">RAHMA OKTAVIA ALBAR</span>
+        <div style="border-left: 4px solid var(--gold-accent); padding-left: 15px;">
+            <span style="letter-spacing: 3px; font-weight: 700;">RAHMA OKTAVIA ALBAR</span>
         </div>
-        <div style="color: var(--gold-accent); font-weight: bold; font-size: 0.8rem;">SYSTEM STATUS: ACTIVE</div>
+        <div style="color: var(--gold-accent); font-weight: bold; font-size: 0.8rem; text-shadow: 0 0 5px var(--gold-accent);">
+            CONNECTION: STABLE
+        </div>
     </div>
 
     <div class="headline-container">
@@ -175,33 +187,24 @@
 
     <div class="menu-container">
         <a href="#" class="menu-card" data-number="01">
-            <div class="corner"></div>
             <h2>About Me</h2>
             <p>User Identity</p>
         </a>
-
         <a href="#" class="menu-card" data-number="02">
-            <div class="corner"></div>
             <h2>The Engine</h2>
-            <p>Data Skills</p>
+            <p>Data Science Skills</p>
         </a>
-
         <a href="#" class="menu-card" data-number="03">
-            <div class="corner"></div>
             <h2>Creative</h2>
-            <p>Design Lab</p>
+            <p>Design & Innovation</p>
         </a>
-
         <a href="#" class="menu-card" data-number="04">
-            <div class="corner"></div>
             <h2>Sandbox</h2>
-            <p>Experimental</p>
+            <p>Personal Projects</p>
         </a>
-
         <a href="#" class="menu-card" data-number="05">
-            <div class="corner"></div>
             <h2>Contact</h2>
-            <p>Connection</p>
+            <p>Reach Out</p>
         </a>
     </div>
 
