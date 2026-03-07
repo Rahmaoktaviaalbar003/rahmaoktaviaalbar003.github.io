@@ -7,11 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
+            --gold-bg: #d29f22;
+            --gold-dark: #b8860b;
             --wine-red: #5d0018;
             --maroon: #800000;
-            --gold-accent: #d29f22;
             --white: #ffffff;
-            --bg-dark: #0a0a0c;
+            --black: #000000;
         }
 
         * {
@@ -23,11 +24,7 @@
 
         body {
             font-family: 'Press Start 2P', cursive;
-            background-color: var(--bg-dark);
-            /* Background Gambar Taman Pixel Art */
-            background-image: url('https://images.squarespace-cdn.com/content/v1/5e8fb706229986344ad93d82/1591745719943-YV6G6X8Z7V1Z1YV6G6X8/Pixel+Art+Garden.png?format=2500w');
-            background-size: cover;
-            background-position: center;
+            background-color: var(--gold-bg);
             color: var(--white);
             height: 100vh;
             display: flex;
@@ -36,12 +33,26 @@
             position: relative;
         }
 
-        /* Overlay agar teks tetap terbaca */
-        body::before {
-            content: '';
+        .pixel-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background-image: 
+                linear-gradient(45deg, var(--gold-dark) 25%, transparent 25%), 
+                linear-gradient(-45deg, var(--gold-dark) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, var(--gold-dark) 75%), 
+                linear-gradient(-45deg, transparent 75%, var(--gold-dark) 75%);
+            background-size: 40px 40px;
+            z-index: -2;
+            opacity: 0.4;
+        }
+
+        .pixel-grid {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
             z-index: -1;
         }
 
@@ -50,7 +61,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background: rgba(0, 0, 0, 0.8);
+            background: var(--black);
             border-bottom: 4px solid var(--wine-red);
             z-index: 10;
         }
@@ -58,7 +69,7 @@
         .player-info {
             font-size: 0.7rem;
             letter-spacing: 2px;
-            color: var(--gold-accent);
+            color: var(--gold-bg);
         }
 
         .headline-container {
@@ -73,7 +84,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--white);
-            text-shadow: 4px 4px 0px var(--wine-red);
+            text-shadow: 4px 4px 0px var(--maroon);
         }
 
         .menu-container {
@@ -94,8 +105,7 @@
             min-width: 200px;
             height: 280px;
             background: var(--maroon);
-            border: 4px solid #000;
-            /* Shadow kotak ala foto referensi */
+            border: 4px solid var(--black);
             box-shadow: 8px 8px 0px 0px var(--wine-red);
             position: relative;
             display: flex;
@@ -109,8 +119,9 @@
 
         .menu-card:hover {
             transform: translateY(-10px);
-            background: var(--gold-accent);
-            box-shadow: 12px 12px 0px 0px var(--white);
+            background: var(--wine-red);
+            border-color: var(--white);
+            box-shadow: 12px 12px 0px 0px var(--black);
         }
 
         .menu-card h2 {
@@ -122,19 +133,14 @@
 
         .menu-card p {
             font-size: 0.45rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-family: 'Press Start 2P', cursive;
-        }
-
-        .menu-card:hover h2, .menu-card:hover p {
-            color: #000;
+            color: var(--gold-bg);
         }
 
         .footer-nav {
             padding: 25px 40px;
             display: flex;
             justify-content: flex-start;
-            background: rgba(0, 0, 0, 0.8);
+            background: var(--black);
             z-index: 10;
         }
 
@@ -150,14 +156,17 @@
         }
 
         .back-btn:hover {
-            background: var(--gold-accent);
-            color: #000;
+            background: var(--gold-bg);
+            color: var(--black);
             box-shadow: 0px 0px 0px;
             transform: translate(4px, 4px);
         }
     </style>
 </head>
 <body>
+
+    <div class="pixel-bg"></div>
+    <div class="pixel-grid"></div>
 
     <div class="hud-top">
         <div class="player-info">
