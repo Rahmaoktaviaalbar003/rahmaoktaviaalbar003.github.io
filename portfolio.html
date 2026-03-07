@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Menu | Rahma Oktavia Albar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #19171b;
@@ -28,120 +28,105 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Supaya terasa seperti layar game */
+            overflow: hidden;
         }
 
-        /* Top Status Bar ala Game HUD */
         .hud-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
+            padding: 15px 40px;
             background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-            border-bottom: 2px solid var(--wine-red);
+            border-bottom: 1px solid var(--wine-red);
         }
 
         .player-info {
             display: flex;
             align-items: center;
-            gap: 15px;
         }
 
-        .level-badge {
-            background: var(--gold-accent);
-            color: var(--bg-dark);
-            padding: 2px 10px;
-            font-weight: 800;
-            font-size: 0.8rem;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-        }
-
-        /* Headline Solo Leveling Style */
         .headline-container {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         h1.headline {
             font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             text-transform: uppercase;
-            text-shadow: 3px 3px 0px var(--wine-red), 6px 6px 0px rgba(210, 159, 34, 0.2);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0px var(--wine-red), 4px 4px 0px rgba(210, 159, 34, 0.2);
         }
 
-        /* Horizontal Menu Layout 2D */
         .menu-container {
             flex: 1;
             display: flex;
             align-items: center;
             overflow-x: auto;
-            padding: 0 50px;
-            gap: 30px;
-            scrollbar-width: none; /* Hide scrollbar for clean look */
+            padding: 0 40px;
+            gap: 20px;
+            scrollbar-width: none;
         }
 
         .menu-container::-webkit-scrollbar { display: none; }
 
         .menu-card {
-            min-width: 300px;
-            height: 400px;
+            min-width: 220px;
+            height: 320px;
             background: rgba(128, 0, 0, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 30px;
-            transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            padding: 20px;
+            transition: 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
             cursor: pointer;
             text-decoration: none;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
         }
 
-        /* Border Glow Effect */
         .menu-card:hover {
             transform: scale(1.05);
             border-color: var(--gold-accent);
-            background: linear-gradient(to top, rgba(93, 0, 24, 0.6), transparent);
-            box-shadow: 0 0 30px rgba(210, 159, 34, 0.1);
+            background: linear-gradient(to top, rgba(93, 0, 24, 0.5), transparent);
+            box-shadow: 0 0 20px rgba(210, 159, 34, 0.15);
         }
 
-        /* Nomor Menu ala Game */
         .menu-card::before {
             content: attr(data-number);
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 10px;
+            left: 10px;
             font-family: 'Poppins';
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.05);
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.04);
             font-weight: 900;
         }
 
         .menu-card h2 {
             font-family: 'Poppins';
             color: var(--white);
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             z-index: 1;
         }
 
         .menu-card p {
             color: var(--gold-accent);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             z-index: 1;
         }
 
-        /* Corner Accent */
         .corner {
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             background: var(--wine-red);
             clip-path: polygon(100% 0, 0 100%, 100% 100%);
         }
@@ -150,9 +135,8 @@
             background: var(--gold-accent);
         }
 
-        /* Bottom Navigation Bar */
         .footer-nav {
-            padding: 30px 50px;
+            padding: 25px 40px;
             display: flex;
             justify-content: flex-start;
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
@@ -162,11 +146,11 @@
             text-decoration: none;
             color: var(--white);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            padding: 10px 30px;
-            border: 2px solid var(--white);
-            transition: 0.3s;
+            padding: 8px 25px;
+            border: 1px solid var(--white);
+            transition: 0.2s;
         }
 
         .back-btn:hover {
@@ -180,10 +164,9 @@
 
     <div class="hud-top">
         <div class="player-info">
-            <div class="level-badge">LV. 23</div>
-            <span style="letter-spacing: 2px; font-weight: 600;">RAHMA OKTAVIA ALBAR</span>
+            <span style="letter-spacing: 2px; font-weight: 600; font-size: 0.9rem; border-left: 3px solid var(--gold-accent); padding-left: 10px;">RAHMA OKTAVIA ALBAR</span>
         </div>
-        <div style="color: var(--gold-accent); font-weight: bold;">SYSTEM STATUS: ACTIVE</div>
+        <div style="color: var(--gold-accent); font-weight: bold; font-size: 0.8rem;">SYSTEM STATUS: ACTIVE</div>
     </div>
 
     <div class="headline-container">
@@ -194,31 +177,31 @@
         <a href="#" class="menu-card" data-number="01">
             <div class="corner"></div>
             <h2>About Me</h2>
-            <p>User Profile & Identity</p>
+            <p>User Identity</p>
         </a>
 
         <a href="#" class="menu-card" data-number="02">
             <div class="corner"></div>
-            <h2>The Engine Room</h2>
-            <p>Data Science Skills</p>
+            <h2>The Engine</h2>
+            <p>Data Skills</p>
         </a>
 
         <a href="#" class="menu-card" data-number="03">
             <div class="corner"></div>
-            <h2>Creative Canvas</h2>
-            <p>Design & Innovation</p>
+            <h2>Creative</h2>
+            <p>Design Lab</p>
         </a>
 
         <a href="#" class="menu-card" data-number="04">
             <div class="corner"></div>
-            <h2>The Sandbox</h2>
-            <p>Experimental Lab</p>
+            <h2>Sandbox</h2>
+            <p>Experimental</p>
         </a>
 
         <a href="#" class="menu-card" data-number="05">
             <div class="corner"></div>
-            <h2>Contact Me</h2>
-            <p>Establish Connection</p>
+            <h2>Contact</h2>
+            <p>Connection</p>
         </a>
     </div>
 
