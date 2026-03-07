@@ -12,7 +12,6 @@
             --text-light: #f8fafc;
             --accent-gray: #94a3b8;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
@@ -24,33 +23,35 @@
             height: 100vh;
             overflow: hidden;
         }
-
         .container {
             text-align: center;
             max-width: 800px;
             padding: 20px;
             animation: fadeIn 1.5s ease-out;
         }
-
+        /* Style untuk Foto Profil */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-red);
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(211, 47, 47, 0.3);
+        }
         h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 3rem;
             margin-bottom: 0.5rem;
             letter-spacing: -1px;
+            color: #ffffff; /* Memastikan semua teks H1 putih */
         }
-
-        .highlight {
-            color: var(--primary-red);
-            text-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
-        }
-
         .bio {
             font-size: 1.25rem;
             color: var(--accent-gray);
             margin-bottom: 2rem;
             font-weight: 400;
         }
-
         .tagline {
             border-left: 4px solid var(--primary-red);
             padding-left: 15px;
@@ -59,11 +60,9 @@
             margin: 20px auto;
             max-width: 500px;
         }
-
         .btn-group {
             margin-top: 30px;
         }
-
         .btn {
             text-decoration: none;
             padding: 12px 30px;
@@ -73,18 +72,15 @@
             display: inline-block;
             margin: 10px;
         }
-
         .btn-primary {
             background-color: var(--primary-red);
             color: white;
             box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
         }
-
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5);
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -92,11 +88,12 @@
     </style>
 </head>
 <body>
-
     <div class="container">
-        <p style="color: var(--primary-red); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Data Science</p>
-        <h1>Rahma <span class="highlight">Oktavia Albar</span></h1>
-        <p class="bio">Mahasiswa Sains Data di <span style="color: #fff;">ITERA</span> 2023</p>
+        <img src="foto-kamu.jpg" alt="Rahma Oktavia Albar" class="profile-img">
+        
+        <p style="color: var(--primary-red); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">My Digital Projects Portfolio</p>
+        
+        <h1>Rahma Oktavia Albar</h1>
         
         <div class="tagline">
             "Mengubah data menjadi insight dan ide menjadi solusi digital."
@@ -106,6 +103,5 @@
             <a href="#projects" class="btn btn-primary">Lihat Proyek Saya</a>
         </div>
     </div>
-
 </body>
 </html>
