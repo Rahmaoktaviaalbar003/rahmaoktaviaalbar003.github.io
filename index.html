@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahma Oktavia Albar | My Digital Projects Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #D32F2F;
+            --bg-dark: #0f172a;
+            --text-light: #f8fafc;
+            --accent-gray: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .highlight {
+            color: var(--primary-red);
+            text-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
+        }
+
+        .bio {
+            font-size: 1.25rem;
+            color: var(--accent-gray);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .tagline {
+            border-left: 4px solid var(--primary-red);
+            padding-left: 15px;
+            font-style: italic;
+            color: #cbd5e1;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .btn-group {
+            margin-top: 30px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: white;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p style="color: var(--primary-red); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Data Science</p>
+        <h1>Rahma <span class="highlight">Oktavia Albar</span></h1>
+        <p class="bio">Mahasiswa Sains Data di <span style="color: #fff;">ITERA</span> 2023</p>
+        
+        <div class="tagline">
+            "Mengubah data menjadi insight dan ide menjadi solusi digital."
+        </div>
+
+        <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">Lihat Proyek Saya</a>
+        </div>
+    </div>
+
+</body>
+</html>
