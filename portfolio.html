@@ -3,186 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel System Menu | Rahma Oktavia Albar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <title>Pixel Garden Menu | Rahma Oktavia Albar</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #19171b;
-            --wine-red: #5d0018;
-            --maroon: #800000;
-            --gold-accent: #d29f22;
+            /* Palet Warna Alami & Elegan */
+            --sky-blue: #87CEEB;     /* Biru Langit Cerah */
+            --grass-green: #32CD32;   /* Hijau Rumput */
+            --flower-pink: #FF69B4;  /* Merah Muda Bunga */
+            --wine-red: #5d0018;     /* Warna Merah Wine Kamu (Formal) */
+            --maroon: #800000;       /* Warna Maroon Kamu (Elegan) */
+            --gold-accent: #d29f22;  /* Warna Gold Kamu (Ceria) */
+            --bg-dark: #0a0e17;      /* Hitam Kebiruan Sangat Gelap */
             --white: #ffffff;
+            --gray-text: #b1b1b1;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            /* Memberikan efek pixelated pada gambar latar */
             image-rendering: pixelated; 
         }
 
         body {
-            font-family: 'Press Start 2P', cursive;
+            /* Font Body Pixel yang Bersih */
+            font-family: 'VT323', monospace; 
             background-color: var(--bg-dark);
-            background-image: 
-                linear-gradient(45deg, #141216 25%, transparent 25%), 
-                linear-gradient(-45deg, #141216 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #141216 75%), 
-                linear-gradient(-45deg, transparent 75%, #141216 75%);
-            background-size: 40px 40px;
             color: var(--white);
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow: hidden; /* Supaya terasa seperti layar game fix */
+            position: relative;
         }
 
+        /* --- Pixel Art Garden Background (Elegan & 2D) --- */
+        .bg-pixel-garden {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Membuat pola gradasi langit dan rumput pixelated */
+            background: 
+                /* Langit Biru di Atas */
+                linear-gradient(to bottom, var(--sky-blue) 0%, #a2d9f1 30%, transparent 40%),
+                /* Rumput Hijau di Bawah */
+                linear-gradient(to top, var(--grass-green) 0%, #5ad15a 15%, transparent 25%),
+                /* Pola Grid Halus agar terasa seperti game */
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+            z-index: -2;
+            opacity: 0.8; /* Sedikit transparan agar formal */
+        }
+
+        /* Menambahkan efek bunga pixelated acak */
+        .bg-pixel-garden::after {
+            content: '';
+            position: absolute;
+            bottom: 5%; left: 10%; width: 10px; height: 10px;
+            background-color: var(--flower-pink);
+            box-shadow: 
+                15px 10px 0 var(--gold-accent), 
+                40px -5px 0 var(--flower-pink),
+                60px 15px 0 var(--gold-accent),
+                100px 5px 0 var(--flower-pink);
+            opacity: 0.5;
+        }
+
+        /* --- UI Elements --- */
         .hud-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            border-bottom: 4px solid var(--wine-red);
-            background: rgba(0,0,0,0.5);
-        }
-
-        .player-info {
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            color: var(--gold-accent);
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 2px solid var(--maroon);
+            z-index: 10;
         }
 
         .headline-container {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
+            z-index: 5;
         }
 
         h1.headline {
-            font-size: 1.5rem;
-            line-height: 1.5;
+            /* Font Headline Poppins agar Tetap Tajam & Solo Leveling vibe */
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
             color: var(--white);
-            text-shadow: 4px 4px 0px var(--wine-red);
+            /* Efek Bayangan Tajam (Solo Leveling vibe) dengan warna Maroon & Emas */
+            text-shadow: 3px 3px 0px var(--maroon), 6px 6px 0px rgba(210, 159, 34, 0.3);
         }
 
-        .menu-container {
+        /* --- Mengetengahkan Menu (5 Kotak) --- */
+        .menu-wrapper {
             flex: 1;
             display: flex;
-            align-items: center;
-            overflow-x: auto;
+            justify-content: center; /* Mengetengahkan secara horizontal */
+            align-items: center;    /* Mengetengahkan secara vertikal */
             padding: 0 40px;
-            gap: 25px;
-            scrollbar-width: none;
+            z-index: 5;
         }
 
-        .menu-container::-webkit-scrollbar { display: none; }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 Kolom Sama Besar */
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px; /* Batas lebar agar kotak tidak terlalu gepeng */
+        }
 
+        /* Kartu Menu Elegan tapi Pixelated */
         .menu-card {
-            min-width: 220px;
-            height: 300px;
-            background: var(--maroon);
-            border: 4px solid #000;
-            box-shadow: 
-                inset -4px -4px 0px 0px rgba(0,0,0,0.4),
-                8px 8px 0px 0px var(--wine-red);
-            position: relative;
+            background: rgba(0, 0, 0, 0.6); /* Latar gelap transparan ala UI Game formal */
+            padding: 30px 20px;
+            text-decoration: none;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
-            transition: 0.2s;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            transition: all 0.3s ease;
             cursor: pointer;
-            text-decoration: none;
+            backdrop-filter: blur(5px);
         }
 
+        /* Efek Hover Ceria & Elegan */
         .menu-card:hover {
-            transform: translateY(-10px);
-            background: var(--gold-accent);
-            box-shadow: 
-                inset -4px -4px 0px 0px rgba(0,0,0,0.2),
-                12px 12px 0px 0px var(--white);
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--gold-accent);
+            background: rgba(128, 0, 0, 0.3); /* Sentuhan Maroon saat hover */
+            box-shadow: 0 10px 20px rgba(210, 159, 34, 0.2);
         }
 
         .menu-card h2 {
-            font-size: 0.8rem;
+            font-family: 'Poppins', sans-serif; /* Judul Menu Formal */
             color: var(--white);
-            margin-bottom: 10px;
-            line-height: 1.4;
+            margin: 0;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
         .menu-card p {
-            font-size: 0.5rem;
-            color: rgba(255,255,255,0.7);
+            color: var(--gray-text);
+            margin: 5px 0 0 0;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: 0.3s;
         }
 
-        .menu-card:hover h2, .menu-card:hover p {
-            color: var(--bg-dark);
+        /* Perubahan warna saat hover (Ceria) */
+        .menu-card:hover h2 {
+            color: var(--gold-accent);
         }
 
+        .menu-card:hover p {
+            color: var(--white);
+        }
+
+        /* Animasi Masuk ala UI Game (Boot Sequence) */
+        @keyframes systemBoot {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .menu-card { animation: systemBoot 0.4s ease-out forwards; opacity: 0; }
+        .menu-card:nth-child(1) { animation-delay: 0.1s; }
+        .menu-card:nth-child(2) { animation-delay: 0.2s; }
+        .menu-card:nth-child(3) { animation-delay: 0.3s; }
+        .menu-card:nth-child(4) { animation-delay: 0.4s; }
+        .menu-card:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Pixel Footer Nav */
         .footer-nav {
-            padding: 30px 40px;
+            padding: 25px 40px;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10;
         }
 
         .back-btn {
             text-decoration: none;
             color: var(--white);
-            font-size: 0.7rem;
-            padding: 12px 20px;
-            border: 4px solid var(--white);
-            background: var(--bg-dark);
-            box-shadow: 4px 4px 0px var(--wine-red);
-            transition: 0.1s;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            border: 2px solid var(--white);
+            padding: 10px 25px;
+            transition: 0.2s;
         }
 
         .back-btn:hover {
             background: var(--wine-red);
-            box-shadow: 0px 0px 0px;
-            transform: translate(4px, 4px);
+            border-color: var(--wine-red);
+            box-shadow: 0 0 10px rgba(93, 0, 24, 0.5);
         }
+
     </style>
 </head>
 <body>
 
+    <div class="bg-pixel-garden"></div>
+
     <div class="hud-top">
-        <div class="player-info">
-            NAME: RAHMA_OKTAVIA_ALBAR
+        <div style="border-left: 3px solid var(--gold-accent); padding-left: 10px;">
+            <span style="letter-spacing: 2px; font-weight: 600; font-size: 0.9rem;">RAHMA OKTAVIA ALBAR</span>
         </div>
-        <div style="font-size: 0.6rem; color: #00ff00;">STATUS: ONLINE</div>
+        <div style="color: var(--gold-accent); font-weight: bold; font-size: 0.8rem; text-shadow: 0 0 5px var(--gold-accent);">
+            SYSTEM: GARDEN MODE
+        </div>
     </div>
 
     <div class="headline-container">
-        <h1 class="headline">SELECT<br>CATEGORY</h1>
+        <h1 class="headline">Select Category</h1>
     </div>
 
-    <div class="menu-container">
-        <a href="#" class="menu-card">
-            <h2>ABOUT_ME</h2>
-            <p>USER PROFILE</p>
-        </a>
+    <div class="menu-wrapper">
+        <div class="menu-grid">
+            <a href="#" class="menu-card">
+                <div>
+                    <h2>About Me</h2>
+                    <p>User Identity</p>
+                </div>
+            </a>
 
-        <a href="#" class="menu-card">
-            <h2>THE_ENGINE</h2>
-            <p>DATA SKILLS</p>
-        </a>
+            <a href="#" class="menu-card">
+                <div>
+                    <h2>The Engine</h2>
+                    <p>Data Skills</p>
+                </div>
+            </a>
 
-        <a href="#" class="menu-card">
-            <h2>CREATIVE</h2>
-            <p>DESIGN LAB</p>
-        </a>
+            <a href="#" class="menu-card">
+                <div>
+                    <h2>Creative</h2>
+                    <p>Design Lab</p>
+                </div>
+            </a>
 
-        <a href="#" class="menu-card">
-            <h2>SANDBOX</h2>
-            <p>FUN PROJ</p>
-        </a>
+            <a href="#" class="menu-card">
+                <div>
+                    <h2>Sandbox</h2>
+                    <p>Experimental</p>
+                </div>
+            </a>
 
-        <a href="#" class="menu-card">
-            <h2>CONTACT</h2>
-            <p>CONNECT</p>
-        </a>
+            <a href="#" class="menu-card">
+                <div>
+                    <h2>Contact</h2>
+                    <p>Connection</p>
+                </div>
+            </a>
+        </div>
     </div>
 
     <div class="footer-nav">
-        <a href="index.html" class="back-btn">SELECT: RETURN</a>
+        <a href="index.html" class="back-btn">[ ESC ] RETURN</a>
     </div>
 
 </body>
