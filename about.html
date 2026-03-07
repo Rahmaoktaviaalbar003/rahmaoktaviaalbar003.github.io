@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Rahma | Data Science Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-bg: #d29f22;
+            --gold-dark: #b8860b;
+            --wine-red: #5d0018;
+            --maroon: #800000;
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            image-rendering: pixelated;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: var(--gold-bg);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .pixel-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(45deg, var(--gold-dark) 25%, transparent 25%), 
+                linear-gradient(-45deg, var(--gold-dark) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, var(--gold-dark) 75%), 
+                linear-gradient(-45deg, transparent 75%, var(--gold-dark) 75%);
+            background-size: 40px 40px;
+            z-index: -2;
+            opacity: 0.3;
+        }
+
+        .hud-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: var(--black);
+            border-bottom: 4px solid var(--wine-red);
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+            z-index: 5;
+        }
+
+        .profile-card {
+            background: rgba(0, 0, 0, 0.85);
+            border: 4px solid var(--black);
+            box-shadow: 10px 10px 0 var(--maroon);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 0.8rem;
+            color: var(--gold-bg);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--maroon);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 0.55rem;
+            line-height: 2;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: var(--maroon);
+            border: 4px solid var(--black);
+            padding: 20px;
+            box-shadow: 6px 6px 0 var(--wine-red);
+        }
+
+        .stat-list {
+            list-style: none;
+            font-size: 0.45rem;
+            line-height: 2.2;
+        }
+
+        .stat-list li::before {
+            content: "> ";
+            color: var(--gold-bg);
+        }
+
+        .footer-nav {
+            padding: 25px 40px;
+            background: var(--black);
+            z-index: 10;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 10px 25px;
+            border: 4px solid var(--white);
+            background: transparent;
+            transition: 0.1s;
+        }
+
+        .back-btn:hover {
+            background: var(--wine-red);
+            box-shadow: 4px 4px 0 var(--gold-bg);
+            transform: translate(-4px, -4px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pixel-bg"></div>
+
+    <header class="hud-top">
+        <div style="font-size: 0.7rem; color: var(--gold-bg);">RAHMA_OKTAVIA_ALBAR</div>
+        <div style="font-size: 0.6rem;">[ ABOUT_ME ]</div>
+    </header>
+
+    <main class="container">
+        <section class="profile-card">
+            <h2>USER_PROFILE</h2>
+            <p class="description">
+                I am Rahma Oktavia Albar, a Data Science student at the Sumatera Institute of Technology with an interest in data analysis and data visualization for data-driven decision making. I work with Python, R, and SQL for data exploration and analysis, and use Power BI to build interactive dashboards that transform data into clear and structured insights.
+            </p>
+        </section>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h2>Technical Skills</h2>
+                <ul class="stat-list">
+                    <li>Data Analysis</li>
+                    <li>Exploratory Data Analysis (EDA)</li>
+                    <li>Statistical Analysis</li>
+                    <li>Data Visualization</li>
+                    <li>Dashboard Development</li>
+                    <li>Data Interpretation</li>
+                    <li>Business Intelligence</li>
+                    <li>Business Data Analysis</li>
+                    <li>Data Visualization for Decision Making</li>
+                </ul>
+            </div>
+
+            <div class="stat-box">
+                <h2>Programming & DB</h2>
+                <ul class="stat-list">
+                    <li>Python</li>
+                    <li>R</li>
+                    <li>SQL</li>
+                    <li>PostgreSQL</li>
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
+                    <li>Neo4j</li>
+                </ul>
+            </div>
+
+            <div class="stat-box">
+                <h2>Tools</h2>
+                <ul class="stat-list">
+                    <li>Power BI</li>
+                    <li>Excel</li>
+                    <li>Tableau</li>
+                    <li>Google Colab</li>
+                    <li>RStudio</li>
+                    <li>Visual Studio Code</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="profile-card" style="margin-top: 30px;">
+            <h2>Current Focus</h2>
+            <ul class="stat-list" style="font-size: 0.5rem;">
+                <li>Data analysis and exploratory data analysis (EDA)</li>
+                <li>Business intelligence and interactive dashboard development</li>
+                <li>Applying data analysis to business and financial decision making</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer-nav">
+        <a href="portfolio.html" class="back-btn">RETURN</a>
+    </footer>
+
+</body>
+</html>
