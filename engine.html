@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Engine | Rahma Oktavia Albar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #d29f22; --wine: #5d0018; --maroon: #800000; --white: #ffffff; --black: #000000; }
+        body { font-family: 'Press Start 2P', cursive; background-color: var(--gold); color: var(--white); min-height: 100vh; display: flex; flex-direction: column; }
+        .hud-top { display: flex; justify-content: space-between; padding: 15px 40px; background: var(--black); border-bottom: 4px solid var(--wine); }
+        .container { flex: 1; padding: 40px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .card { background: var(--maroon); border: 4px solid var(--black); padding: 20px; text-decoration: none; color: white; box-shadow: 6px 6px 0px var(--wine); transition: 0.2s; }
+        .card:hover { transform: scale(1.05); background: var(--wine); border-color: var(--white); }
+        .card img { width: 100%; height: 150px; object-fit: cover; margin-bottom: 15px; border: 2px solid var(--black); }
+        .card h2 { font-size: 0.7rem; margin-bottom: 10px; color: var(--gold); }
+        .footer { padding: 25px 40px; background: var(--black); }
+        .back-btn { text-decoration: none; color: var(--white); font-size: 0.7rem; padding: 10px 25px; border: 4px solid var(--white); display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="hud-top"><div>ENGINE_ROOM.SYS</div><div style="color: #00ff00;">STATUS: ONLINE</div></div>
+    <div class="container">
+        <h1 style="font-family: 'Poppins'; margin-bottom: 40px; font-size: 2.5rem; text-shadow: 3px 3px var(--maroon);">Data Analytics</h1>
+        <div class="grid">
+            <a href="logistic_report.html" class="card">
+                <img src="image_95e3d2.png" alt="Logistic Performance">
+                <h2>LOGISTIC PERFORMANCE HUB</h2>
+                <p style="font-size: 0.5rem; font-family: 'Poppins';">Analisis Efisiensi Pengiriman & On-Time Delivery</p>
+            </a>
+        </div>
+    </div>
+    <div class="footer"><a href="index.html" class="back-btn">RETURN</a></div>
+</body>
+</html>
