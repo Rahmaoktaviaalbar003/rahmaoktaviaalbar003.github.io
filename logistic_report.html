@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistic Performance Hub | Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d29f22; --black: #000000; --wine: #5d0018; --white: #ffffff;
+        }
+        body { font-family: 'Poppins', sans-serif; background: var(--black); color: var(--white); margin: 0; padding-bottom: 50px; }
+        .header { font-family: 'Press Start 2P', cursive; background: var(--wine); padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
+        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
+        
+        /* Metric Cards */
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; margin-top: -20px; }
+        .metric-card { background: #1a1a1a; padding: 20px; border-left: 4px solid #ff4444; }
+        .metric-card label { display: block; font-family: 'Press Start 2P'; font-size: 8px; color: var(--gold); margin-bottom: 10px; }
+        .metric-card .value { font-size: 1.5rem; font-weight: bold; color: #ff4444; }
+
+        .content-section { background: #111; border: 1px solid #333; padding: 35px; line-height: 1.8; margin-bottom: 30px; text-align: justify; }
+        .content-section h2 { font-family: 'Press Start 2P'; font-size: 12px; margin-top: 30px; margin-bottom: 20px; color: var(--gold); border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+        .content-section h2:first-child { margin-top: 0; }
+
+        .dashboard-img { width: 100%; border: 3px solid #444; margin: 20px 0; transition: 0.3s; }
+        .dashboard-img:hover { border-color: var(--gold); }
+
+        .btn-group { margin-top: 25px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .btn { display: inline-block; background: var(--gold); color: black; padding: 12px 20px; text-decoration: none; font-family: 'Press Start 2P'; font-size: 8px; box-shadow: 4px 4px 0px #886611; }
+        .btn:hover { background: #ffcc00; transform: translate(2px, 2px); box-shadow: 0px 0px 0px; }
+        
+        .back { display: block; text-align: center; margin-top: 60px; color: var(--gold); text-decoration: none; font-family: 'Press Start 2P'; font-size: 10px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; color: #ccc; }
+        strong { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 style="font-size: 18px;">LOGISTIC PERFORMANCE HUB</h1>
+        <p style="font-size: 10px; margin-top: 15px; color: var(--gold);">SYSTEM AUDIT & DATA ANALYSIS</p>
+    </div>
+
+    <div class="container">
+        <div class="metric-grid">
+            <div class="metric-card">
+                <label>ON-TIME DELIVERY</label>
+                <div class="value">54%</div>
+                <p style="font-size: 10px; color: #888;">Target: 90%</p>
+            </div>
+            <div class="metric-card">
+                <label>LATE DELIVERIES</label>
+                <div class="value">92</div>
+                <p style="font-size: 10px; color: #888;">Total: 200 Orders</p>
+            </div>
+            <div class="metric-card">
+                <label>PEAK SHIP COST</label>
+                <div class="value">$2,662</div>
+                <p style="font-size: 10px; color: #888;">Month: July</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>SYSTEM DIAGNOSTIC</h2>
+            <p>
+                Berdasarkan audit layanan logistik, perusahaan saat ini berada dalam kondisi kritis dengan tingkat <strong>On-Time Delivery (OTD)</strong> yang meleset jauh dari target. Sebanyak 46% pesanan mengalami keterlambatan meskipun perusahaan menangani volume besar hingga 20.000 pengiriman tahunan.
+            </p>
+
+            <img src="image_95e3d2.png" alt="Power BI Dashboard" class="dashboard-img">
+
+            <h2>KEY INSIGHTS</h2>
+            <ul>
+                <li><strong>Regional Analysis:</strong> Wilayah <strong>East (Timur)</strong> merupakan titik terlemah dengan jumlah keterlambatan tertinggi.</li>
+                <li><strong>Transport Mode:</strong> Pengiriman didominasi oleh jalur darat (Truck) sebesar 38,5%.</li>
+                <li><strong>Cost Trend:</strong> Biaya pengiriman menunjukkan tren kenaikan berkelanjutan dan mencapai puncaknya di bulan Juli.</li>
+                <li><strong>Warehouse Performance:</strong> Warehouse B (WH_B) tercatat sebagai gudang dengan performa paling seimbang dan tingkat OTD tertinggi.</li>
+            </ul>
+
+            <h2>RECOMMENDATIONS</h2>
+            <p>
+                Ditemukan korelasi kuat di mana ketepatan waktu sangat memengaruhi tingkat kepuasan pelanggan. Untuk menekan keterlambatan dan biaya, direkomendasikan untuk segera melakukan audit rute di wilayah Timur dan melakukan standardisasi operasional mengikuti protokol Warehouse B.
+            </p>
+
+            <div class="btn-group">
+                <a href="Logistic Performance.pdf" target="_blank" class="btn">VIEW FULL PDF REPORT</a>
+                <a href="https://app.powerbi.com/Redirect?action=openreport&context=Annotate&ctid=82119505-7f56-4e1d-859a-bbeac83a78a0&pbi_source=mobile_android&groupObjectId=a5c08c82-9962-415f-aed9-fcdcc417bb09&reportObjectId=f6bf57d5-ab03-4b26-b8de-d390593c99b8&reportPage=5f5dd29a5ace700bad93&bookmarkGuid=8fb30727-d9c0-489d-813c-e63629865216&fullScreen=0" target="_blank" class="btn">LIVE DASHBOARD</a>
+            </div>
+        </div>
+
+        <a href="engine.html" class="back"><< BACK TO ENGINE ROOM</a>
+    </div>
+
+</body>
+</html>
