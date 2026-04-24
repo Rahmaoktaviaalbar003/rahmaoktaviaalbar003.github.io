@@ -7,30 +7,140 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #d29f22; --black: #000000; --wine: #5d0018; --white: #ffffff;
+            --gold: #d29f22; 
+            --black: #000000; 
+            --wine: #5d0018; 
+            --white: #ffffff;
         }
-        body { font-family: 'Poppins', sans-serif; background: var(--black); color: var(--white); margin: 0; padding-bottom: 50px; }
-        .header { font-family: 'Press Start 2P', cursive; background: var(--wine); padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: var(--black); 
+            color: var(--white); 
+            margin: 0; 
+            padding-bottom: 50px; 
+        }
+
+        .header { 
+            font-family: 'Press Start 2P', cursive; 
+            background: var(--wine); 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--gold); 
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 40px 20px; 
+        }
         
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; margin-top: -20px; }
-        .info-item { background: #1a1a1a; padding: 15px; border-left: 4px solid var(--gold); }
-        .info-item label { display: block; font-family: 'Press Start 2P'; font-size: 8px; color: var(--gold); margin-bottom: 5px; }
+        .info-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 40px; 
+            margin-top: -20px; 
+        }
 
-        .content-section { background: #111; border: 1px solid #333; padding: 25px; line-height: 1.8; margin-bottom: 30px; }
-        .content-section h2 { font-family: 'Press Start 2P'; font-size: 14px; margin-bottom: 20px; color: var(--gold); border-bottom: 2px solid var(--gold); display: inline-block; }
+        .info-item { 
+            background: #1a1a1a; 
+            padding: 15px; 
+            border-left: 4px solid var(--gold); 
+        }
 
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
-        .gallery img { width: 100%; height: 250px; object-fit: cover; border: 2px solid #444; transition: 0.3s; }
-        .gallery img:hover { transform: scale(1.02); border-color: var(--gold); }
+        .info-item label { 
+            display: block; 
+            font-family: 'Press Start 2P'; 
+            font-size: 8px; 
+            color: var(--gold); 
+            margin-bottom: 5px; 
+        }
 
-        .news-links { margin-top: 20px; }
-        .btn { display: inline-block; background: var(--gold); color: black; padding: 12px 20px; text-decoration: none; font-family: 'Press Start 2P'; font-size: 9px; margin: 5px; box-shadow: 4px 4px 0px #886611; }
-        .btn:hover { background: #ffcc00; transform: translate(2px, 2px); box-shadow: 0px 0px 0px; }
+        .content-section { 
+            background: #111; 
+            border: 1px solid #333; 
+            padding: 35px; 
+            line-height: 1.8; 
+            margin-bottom: 30px; 
+            text-align: justify;
+        }
+
+        .content-section h2 { 
+            font-family: 'Press Start 2P'; 
+            font-size: 12px; 
+            margin-top: 30px;
+            margin-bottom: 20px; 
+            color: var(--gold); 
+            border-bottom: 2px solid var(--gold); 
+            display: inline-block; 
+            padding-bottom: 5px;
+        }
+
+        .content-section h2:first-child { margin-top: 0; }
+
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 20px; 
+            margin-top: 30px; 
+        }
+
+        .gallery a { display: block; overflow: hidden; }
+
+        .gallery img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            border: 2px solid #444; 
+            transition: 0.3s; 
+            cursor: zoom-in;
+            display: block;
+        }
+
+        .gallery img:hover { 
+            transform: scale(1.02); 
+            border-color: var(--gold); 
+        }
+
+        .news-links { 
+            margin-top: 25px; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px;
+        }
+
+        .btn { 
+            display: inline-block; 
+            background: var(--gold); 
+            color: black; 
+            padding: 12px 18px; 
+            text-decoration: none; 
+            font-family: 'Press Start 2P'; 
+            font-size: 8px; 
+            box-shadow: 4px 4px 0px #886611; 
+            transition: 0.1s;
+        }
+
+        .btn:hover { 
+            background: #ffcc00; 
+            transform: translate(2px, 2px); 
+            box-shadow: 0px 0px 0px; 
+        }
         
-        .back { display: block; text-align: center; margin-top: 50px; color: var(--gold); text-decoration: none; font-family: 'Press Start 2P'; font-size: 10px; }
-        ul { padding-left: 20px; color: #ccc; }
-        li { margin-bottom: 10px; }
+        .back { 
+            display: block; 
+            text-align: center; 
+            margin-top: 60px; 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-family: 'Press Start 2P'; 
+            font-size: 10px; 
+        }
+
+        ul { padding-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 12px; color: #ccc; }
+        strong { color: var(--gold); }
     </style>
 </head>
 <body>
@@ -48,30 +158,32 @@
             </div>
             <div class="info-item">
                 <label>FUNDING</label>
-                <p>Direktorat Belmawa, Kemendikbudristek</p>
+                <p>Kemendikbudristek</p>
             </div>
             <div class="info-item">
                 <label>EVENT</label>
-                <p>KMI Expo XV</p>
+                <p>KMI Expo XV - Kendari</p>
             </div>
         </div>
 
         <div class="content-section">
             <h2>OVERVIEW</h2>
-                IT'S CLEAN merupakan startup inovatif yang diinisiasi oleh mahasiswa Institut Teknologi Sumatera (ITERA) dengan fokus utama pada jasa perawatan sepatu dan penyediaan produk pembersih premium. Bisnis ini berhasil terpilih sebagai salah satu penerima pendanaan dalam Program Pembinaan Mahasiswa Wirausaha (P2MW) 2024 yang diselenggarakan oleh Kemendikbudristek. 
+            <p>
+                <strong>IT'S CLEAN</strong> merupakan startup inovatif yang diinisiasi oleh mahasiswa Institut Teknologi Sumatera (ITERA) dengan fokus utama pada jasa perawatan sepatu dan penyediaan produk pembersih premium. Bisnis ini berhasil terpilih sebagai salah satu penerima pendanaan dalam <strong>Program Pembinaan Mahasiswa Wirausaha (P2MW) 2024</strong> yang diselenggarakan oleh Kemendikbudristek.
             </p>
             <p>
-                Berkat keberhasilan dalam mengoptimalkan dana hibah untuk pengembangan produk serta skalabilitas layanan, IT'S CLEAN terpilih menjadi salah satu perwakilan ITERA untuk berkompetisi di ajang nasional bergengsi, Kewirausahaan Mahasiswa Indonesia (KMI) Expo XV 2024, yang diselenggarakan di Universitas Halu Oleo (UHO), Kendari, Sulawesi Tenggara.
+                Berkat keberhasilan dalam mengoptimalkan dana hibah untuk pengembangan produk serta skalabilitas layanan, IT'S CLEAN terpilih menjadi salah satu perwakilan ITERA untuk berkompetisi di ajang nasional bergengsi, <strong>Kewirausahaan Mahasiswa Indonesia (KMI) Expo XV 2024</strong>, yang diselenggarakan di Universitas Halu Oleo (UHO), Kendari, Sulawesi Tenggara.
             </p>
 
             <h2>SERVICES & PRODUCTS</h2>
             <p>
-                Dalam operasionalnya, IT'S CLEAN menyediakan solusi lengkap perawatan sepatu yang meliputi pencucian <em>(cleaning)</em>, perbaikan sol <em>(reglue)</em>, hingga pewarnaan ulang <em>(repaint)</em>. Selain layanan jasa, startup ini juga meluncurkan lini produk mandiri bermerek <strong>Feasible Supplies</strong> yang mencakup:
+                Dalam operasionalnya, IT'S CLEAN menyediakan solusi lengkap perawatan sepatu yang meliputi pencucian <em>(cleaning)</em>, perbaikan sol <em>(reglue)</em>, hingga pewarnaan ulang <em>(repaint)</em>. Selain layanan jasa, startup ini juga meluncurkan lini produk mandiri bermerek <strong>Feasible Supplies</strong>:
             </p>
             <ul>
                 <li><strong>Foam Cleaner:</strong> Solusi untuk pencucian kering yang praktis.</li>
                 <li><strong>Parfum Sepatu:</strong> Varian aroma Bubblegum dan Akasia.</li>
                 <li><strong>Silica Gel Aroma Kopi:</strong> Inovasi penjaga kelembapan sekaligus memberikan keharuman khas pada sepatu.</li>
+            </ul>
 
             <h2>MY CONTRIBUTIONS (CFO)</h2>
             <ul>
@@ -80,23 +192,23 @@
                 <li><strong>Business Strategy:</strong> Berpartisipasi dalam pengembangan model bisnis yang berkelanjutan dan kompetitif di pasar.</li>
             </ul>
 
-            <h2>OFFICIAL NEWS</h2>
+            <h2>OFFICIAL NEWS & MEDIA</h2>
             <div class="news-links">
-                <a href="https://www.itera.ac.id/dua-tim-mahasiswa-fakultas-sains-itera-lolos-program-kewirausahaan-mahasiswa-indonesia/" target="_blank" class="btn">KMI EXPO</a>
-                <a href="https://www.itera.ac.id/tiga-kelompok-p2mw-itera-tampil-di-kmi-expo-xv-2024-sajikan-inovasi-berbasis-teknologi-dan-kearifan-lokal/" target="_blank" class="btn">KMI EXPO</a>
-                <a href="https://youtu.be/kgHB-WWTUXk?si=gt54c_89SYb0au5Y" target="_blank" class="btn">IT'S CLEAN (INOVASI UNTUK BERSIHKAN SEPATU)</a>
+                <a href="https://www.itera.ac.id/dua-tim-mahasiswa-fakultas-sains-itera-lolos-program-kewirausahaan-mahasiswa-indonesia/" target="_blank" class="btn">BERITA KELOLOSAN</a>
+                <a href="https://www.itera.ac.id/tiga-kelompok-p2mw-itera-tampil-di-kmi-expo-xv-2024-sajikan-inovasi-berbasis-teknologi-dan-kearifan-lokal/" target="_blank" class="btn">BERITA KMI EXPO</a>
+                <a href="https://youtu.be/kgHB-WWTUXk?si=gt54c_89SYb0au5Y" target="_blank" class="btn">VIDEO INOVASI</a>
                 <a href="https://www.instagram.com/p/DBWCD1JS5i7/?igsh=MW1vcHRuM2M1NmNsaw==" target="_blank" class="btn">APRESIASI P2MW</a>
-                <a href="https://www.instagram.com/p/DJ6EAOty9ko/?igsh=OWRiejZhNWRwaDB0" target="_blank" class="btn">APRESIASI P2MW</a>
             </div>
         </div>
 
-        <h2 style="font-family: 'Press Start 2P'; font-size: 14px; color: var(--gold); border-left: 5px solid var(--wine); padding-left: 10px;">SYSTEM DOCUMENTATION</h2>
+        <h2 style="font-family: 'Press Start 2P'; font-size: 14px; color: var(--gold); border-left: 5px solid var(--wine); padding-left: 10px; margin-bottom: 20px;">SYSTEM DOCUMENTATION</h2>
         <div class="gallery">
             <a href="itsclean_poster.jpeg" target="_blank"><img src="itsclean_poster.jpeg" alt="Poster P2MW"></a>
             <a href="p2mw_itsclean.jpeg" target="_blank"><img src="p2mw_itsclean.jpeg" alt="Tim P2MW"></a>
             <a href="poster2.jpeg" target="_blank"><img src="poster2.jpeg" alt="Product IT'S CLEAN"></a>
             <a href="product1.jpeg" target="_blank"><img src="product1.jpeg" alt="Produk ITS'S CLEAN"></a>
             <a href="me_rahma.jpeg" target="_blank"><img src="me_rahma.jpeg" alt="Rahma at Event"></a>
+            <a href="logo_itsclean.jpeg" target="_blank"><img src="logo_itsclean.jpeg" alt="Logo IT'S CLEAN"></a>
         </div>
 
         <a href="creative.html" class="back"><< BACK TO CREATIVE MENU</a>
