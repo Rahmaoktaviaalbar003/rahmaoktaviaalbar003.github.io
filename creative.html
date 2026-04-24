@@ -1,18 +1,135 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Creative - Rahma Oktavia Albar</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Menu | Rahma Oktavia Albar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #f4b400; font-family: sans-serif; text-align: center; padding: 50px; }
-        .content { background: white; padding: 20px; display: inline-block; border-radius: 10px; }
+        :root {
+            --gold-bg: #d29f22;
+            --gold-dark: #b8860b;
+            --wine-red: #5d0018;
+            --maroon: #800000;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: var(--gold-bg);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background sama dengan Index */
+        .pixel-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(45deg, var(--gold-dark) 25%, transparent 25%), 
+                linear-gradient(-45deg, var(--gold-dark) 25%, transparent 25%);
+            background-size: 40px 40px;
+            z-index: -2;
+            opacity: 0.4;
+        }
+
+        .hud-top {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 40px;
+            background: var(--black);
+            border-bottom: 4px solid var(--wine-red);
+        }
+
+        .headline-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        h1.headline {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            text-shadow: 4px 4px 0px var(--maroon);
+        }
+
+        .sub-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 40px;
+            max-width: 1000px;
+            margin: 0 auto flex;
+            flex: 1;
+        }
+
+        .sub-card {
+            background: var(--maroon);
+            border: 4px solid var(--black);
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+            box-shadow: 6px 6px 0px var(--wine-red);
+            transition: 0.2s;
+        }
+
+        .sub-card:hover {
+            transform: scale(1.02);
+            background: var(--wine-red);
+            border-color: var(--white);
+        }
+
+        .sub-card h2 { font-size: 0.8rem; margin-bottom: 10px; color: var(--gold-bg); }
+        .sub-card p { font-size: 0.5rem; line-height: 1.6; }
+
+        .footer-nav {
+            padding: 25px 40px;
+            background: var(--black);
+            margin-top: 40px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 10px 25px;
+            border: 4px solid var(--white);
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Creative Portfolio</h1>
-        <p>Di sini kamu bisa mengisi karya kreatif, desain UI/UX, atau proyek lainnya.</p>
-        <a href="index.html">Kembali ke Beranda</a>
+    <div class="pixel-bg"></div>
+
+    <div class="hud-top">
+        <div style="font-size: 0.7rem;">CREATIVE_MODULE.EXE</div>
+        <div style="font-size: 0.6rem; color: #00ff00;">LOCATION: SUB_MENU</div>
+    </div>
+
+    <div class="headline-container">
+        <h1 class="headline">Creative Projects</h1>
+    </div>
+
+    <div class="sub-menu-grid">
+        <a href="p2mw.html" class="sub-card">
+            <h2>P2MW 2024</h2>
+            <p>Program Pembinaan Mahasiswa Wirausaha - Project: IT'S CLEAN (CFO Role)</p>
+        </a>
+
+        <div class="sub-card" style="opacity: 0.6; cursor: not-allowed;">
+            <h2>COMING SOON</h2>
+            <p>Next creative innovation...</p>
+        </div>
+    </div>
+
+    <div class="footer-nav">
+        <a href="index.html" class="back-btn">BACK TO SYSTEM</a>
     </div>
 </body>
 </html>
