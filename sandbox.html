@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sandbox | Rahma Oktavia Albar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d29f22;
+            --wine: #5d0018;
+            --maroon: #800000;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: var(--gold);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hud-top {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 40px;
+            background: var(--black);
+            border-bottom: 4px solid var(--wine);
+        }
+
+        .container {
+            flex: 1;
+            padding: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1.main-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            text-shadow: 4px 4px 0px var(--maroon);
+        }
+
+        .sandbox-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--maroon);
+            border: 4px solid var(--black);
+            padding: 30px;
+            text-align: left;
+            box-shadow: 10px 10px 0px var(--wine);
+            position: relative;
+        }
+
+        .project-card h2 {
+            font-size: 0.9rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--black);
+            color: #00ff00;
+            padding: 5px 10px;
+            font-size: 0.5rem;
+            margin-bottom: 15px;
+            border: 1px solid #00ff00;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            text-decoration: none;
+            font-family: 'Press Start 2P';
+            font-size: 0.6rem;
+            padding: 12px 20px;
+            border: 3px solid var(--white);
+            transition: 0.2s;
+            color: var(--white);
+        }
+
+        .btn-git { background: #333; }
+        .btn-demo { background: #ff4b4b; border-color: #ff4b4b; color: white; }
+
+        .action-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 5px 5px 0px var(--black);
+            filter: brightness(1.2);
+        }
+
+        .footer-nav {
+            padding: 25px 40px;
+            background: var(--black);
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 10px 25px;
+            border: 4px solid var(--white);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="hud-top">
+        <div style="font-size: 0.7rem;">SANDBOX_ENVIRONMENT.LOG</div>
+        <div style="font-size: 0.6rem; color: #00ff00;">STAGING: SUCCESS</div>
+    </div>
+
+    <div class="container">
+        <h1 class="main-title">The Sandbox</h1>
+
+        <div class="sandbox-grid">
+            <div class="project-card">
+                <div class="tag">HACKATHON PROJECT // DATAMEAL</div>
+                <h2>MBG SENTRA: Monitoring & Transparansi</h2>
+                <p>Dashboard prototipe untuk pengawasan program Makan Bergizi Gratis (MBG), memastikan transparansi distribusi dan efisiensi anggaran melalui integrasi data yang real-time.</p>
+
+                <div style="background: white; padding: 10px; margin-bottom: 25px; border: 2px solid var(--black);">
+                  <img src="Flowchart_solusi.drawio.png" alt="Flowchart Solusi MBG Sentra" style="width: 100%; height: auto; display: block;">
+                </div>
+                    
+                <div class="btn-group">
+                  <a href="https://github.com/Rahmaoktaviaalbar003/hackaton_datameal" target="_blank" class="action-btn btn-git">SOURCE CODE</a>
+                  <a href="https://hackatondatameal-mbgsentra.streamlit.app/" target="_blank" class="action-btn btn-demo">LIVE PROTOTYPE</a>
+                </div>
+            </div>
+
+            <div class="project-card" style="opacity: 0.4; border-style: dashed;">
+                <h2 style="color: #666;">COMING SOON</h2>
+                <p>Awaiting for the next innovation</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-nav">
+        <a href="index.html" class="back-btn">RETURN TO HUB</a>
+    </div>
+</body>
+</html>
